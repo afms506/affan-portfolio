@@ -1,70 +1,349 @@
-/* Global base styles for the entire site */
+/* =========================================================
+   Global theme 
+   ========================================================= */
+
+:root {
+  --bg-main: #0d1117;        /* main background */
+  --bg-elevated: #161b22;    /* cards, navbar, footer */
+  --border-subtle: #30363d;  /* borders */
+  --text-main: #c9d1d9;      /* primary text */
+  --text-muted: #8b949e;     /* secondary text */
+  --accent: #1f6feb;         /* blue accent */
+  --accent-soft: #388bfd33;  /* soft accent background */
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow-soft: 0 10px 30px rgba(1, 4, 9, 0.6);
+}
+
+/* Reset margins + consistent font everywhere */
+html,
 body {
+  margin: 0;
+  padding: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #050816;        /* Dark background to match security theme */
-  color: #e5e5e5;              /* Light text for contrast */
 }
 
-/* Make sure page content is tall enough to push footer down */
-main {
+/* Main body background + text color */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Override Bootstrap's very faint .text-muted to a readable shade */
+.text-muted {
+  color: var(--text-muted) !important;  /* our custom muted, not invisible */
+}
+
+
+/* Apply some vertical space so pages don't feel cramped */
+main,
+.hero {
   min-height: 70vh;
+  padding-bottom: 2.5rem;
 }
 
-/* Remove default underlines (handled manually where needed) */
+/* Links use accent color */
 a {
+  color: var(--accent);
   text-decoration: none;
 }
 
-/* Navbar brand styling */
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   Navbar
+   ========================================================= */
+
+.navbar {
+  background-color: var(--bg-elevated) !important;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
 .navbar-brand {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   font-size: 0.9rem;
 }
 
-/* Hero section background with subtle gradients */
+.nav-link {
+  color: var(--text-muted) !important;
+  font-size: 0.9rem;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: var(--accent) !important;
+}
+
+/* =========================================================
+   Home / Hero
+   ========================================================= */
+
 .hero {
-  background: radial-gradient(circle at top left, #1f51ff33, transparent),
-              radial-gradient(circle at top right, #22c55e22, transparent);
+  padding-top: 3.5rem;
+  padding-bottom: 3rem;
+  background:
+    radial-gradient(circle at top left, var(--accent-soft), transparent),
+    radial-gradient(circle at top right, rgba(46, 160, 67, 0.12), transparent),
+    linear-gradient(to right, #0d1117, #0b1020);
 }
 
-/* "Glass" style card used on home page */
-.glass-card {
-  background: rgba(10, 12, 19, 0.9);
-  border: 1px solid rgba(148, 163, 253, 0.18);
-  backdrop-filter: blur(8px);
+.hero .display-5,
+.hero h1,
+.hero p {
+  margin-bottom: 0.75rem;
 }
 
-/* Custom cyan badge used in hero */
+/* Cyan label at top of hero */
 .bg-cyan {
   background-color: #a5f3fc;
+  color: #111827;
+  padding: 0.15rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
 }
 
-/* About page skill badges layout */
+/* Hero buttons */
+.hero .btn {
+  padding: 0.7rem 1.6rem;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.hero .btn-primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.hero .btn-primary:hover {
+  background-color: #1f6feb;
+  border-color: #1f6feb;
+}
+
+.hero .btn-outline-light {
+  border-color: var(--accent);
+  color: var(--accent);
+  background-color: transparent;
+}
+
+.hero .btn-outline-light:hover {
+  background-color: var(--accent-soft);
+}
+
+/* Focus Areas / glass-style card on home page */
+.glass-card {
+  background-color: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  color: var(--text-main);
+}
+
+/* Ensure ALL text inside is readable (including .text-muted / small) */
+.glass-card h5,
+.glass-card p,
+.glass-card li,
+.glass-card span,
+.glass-card small,
+.glass-card .text-muted {
+  color: var(--text-main) !important;
+}
+
+/* Keep icons blue for contrast */
+.glass-card i {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   About page
+   ========================================================= */
+
+.about-page {
+  padding-top: 3rem;
+}
+
 .skills-badges .badge {
-  margin: 0 0.25rem 0.4rem 0;
+  margin: 0 0.35rem 0.45rem 0;
+  background-color: var(--bg-elevated);
+  color: var(--text-muted);
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  font-weight: 400;
 }
 
-/* Project cards: dark theme + hover effect */
+/* Make the About page skills card match the dark theme */
+.about-page .card {
+  background-color: var(--bg-elevated);
+  color: var(--text-main);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Tidy up badge style inside that card (override any light backgrounds) */
+.about-page .skills-badges .badge {
+  background-color: transparent !important;          /* kill Bootstrap's light pill */
+  color: var(--text-main) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   Projects page
+   ========================================================= */
+
 .project-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  background-color: #0b0f19;
-  border: 1px solid #111827;
+  background-color: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  padding: 1.25rem 1.3rem;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  color: var(--text-main);
+}
+
+.project-card .card-title {
+  margin-bottom: 0.5rem;
+}
+
+.project-card .card-text {
+  color: var(--text-muted);
 }
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.6);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--accent);
 }
 
-/* Contact card matches dark theme */
-.contact-card {
-  background-color: #0b0f19;
-  border: 1px solid #111827;
+/* Give row of cards some breathing room */
+.row.g-4 {
+  margin-top: 0.75rem;
 }
 
-/* Smaller, clean footer text */
-footer p,
-footer a {
+/* =========================================================
+   Contact page (dark theme to match)
+   ========================================================= */
+
+.contact-wrapper {
+  padding-top: 3rem;
+}
+
+.contact-card,
+.contact-form-card {
+  background-color: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  padding: 2rem 1.75rem 1.75rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Make all text inside the contact card readable */
+.contact-card h1,
+.contact-card h2,
+.contact-card h3,
+.contact-card p,
+.contact-card li,
+.contact-card span,
+.contact-card small,
+.contact-card .text-muted {
+  color: var(--text-main) !important;
+}
+
+/* Ensure only one style is used; both selectors kept if you use either name */
+.contact-title {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.contact-underline {
+  width: 80px;
+  height: 3px;
+  background-color: var(--accent);
+  border-radius: 999px;
+}
+
+.contact-input {
+  background-color: #0f172a;
+  border-radius: 6px !important;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.contact-input::placeholder {
+  color: var(--text-muted);
+}
+
+.contact-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-soft);
+}
+
+/* Fake captcha (if you kept that layout) */
+.captcha-box {
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+  padding: 0.75rem 1rem;
+  background-color: #0f172a;
+  color: var(--text-muted);
+}
+
+/* Send button */
+.btn-contact-submit,
+.contact-card .btn {
+  background-color: var(--accent);
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 2.2rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.btn-contact-submit:hover,
+.contact-card .btn:hover {
+  background-color: #1f6feb;
+}
+
+/* =========================================================
+   Footer (simple + consistent, non-sticky)
+   ========================================================= */
+
+footer {
+  background-color: var(--bg-elevated);
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-subtle);
+  padding: 0.75rem 0;
   font-size: 0.8rem;
+}
+
+footer a {
+  color: var(--accent);
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   Responsive tweaks
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .contact-card,
+  .contact-form-card {
+    padding: 1.6rem 1.2rem 1.4rem;
+  }
 }
