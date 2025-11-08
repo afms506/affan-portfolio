@@ -1,0 +1,23 @@
+<%# views/partials/footer.ejs %>
+<%# Shared footer: copyright + social links (GitHub & LinkedIn required by assignment). %>
+
+<footer class="bg-dark text-white py-4 mt-5">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <!-- Left side: dynamic current year + name -->
+    <p class="mb-2 mb-md-0">
+      &copy; <%= new Date().getFullYear() %> Affan Shaikh
+    </p>
+
+    <!-- Right side: social links -->
+    <div>
+      <!-- GitHub profile -->
+      <a href="https://github.com/afms506" class="text-white me-3" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <!-- LinkedIn profile -->
+      <a href="https://www.linkedin.com/in/affan-shaikh-6854902a8" class="text-white" target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+    </div>
+  </div>
+</footer>

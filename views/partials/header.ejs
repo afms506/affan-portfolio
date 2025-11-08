@@ -1,0 +1,33 @@
+<%# views/partials/header.ejs %>
+<%# Shared navigation bar displayed at the top of every page. %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <!-- Brand: links back to home page -->
+    <a class="navbar-brand fw-bold" href="/">Affan Shaikh</a>
+
+    <!-- Mobile menu toggle button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation links -->
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <!-- The 'active' class is set based on the title passed from the route -->
+        <li class="nav-item">
+          <a class="nav-link <%= title === 'Home' ? 'active' : '' %>" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= title === 'About Me' ? 'active' : '' %>" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= title === 'Projects' ? 'active' : '' %>" href="/projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= title === 'Contact' ? 'active' : '' %>" href="/contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
