@@ -1,4 +1,7 @@
-<%# About page - describes Affan's background and skills %>
+<%#
+  About page
+  Describes Affan's program, interests, and technical skills.
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,30 +16,44 @@
 <body>
   <%- include('../partials/header'); %>
 
-  <main class="container py-5">
-    <h1>About Me</h1>
+  <main class="container py-5 about-page">
+    <div class="row g-5 align-items-start">
+      <!-- Main about text -->
+      <div class="col-lg-7">
+        <h1 class="mb-3">About Me</h1>
+        <p>
+          I'm a second-year student in the
+          <strong>Networking and Cybersecurity</strong> program at
+          <strong>Ontario Tech University</strong>.
+        </p>
+        <p>
+          I focus on understanding how networks are designed, how attacks target real systems,
+          and how to secure infrastructure through configuration, monitoring, and best practices.
+        </p>
+      </div>
 
-    <p>
-      I am a second-year student in the <strong>Networking and Cybersecurity</strong> program at
-      <strong>Ontario Tech University</strong>. I am focused on understanding how networks are built,
-      how systems communicate securely, and how to protect infrastructure from malicious activity.
-    </p>
+      <!-- Skills summary card -->
+      <div class="col-lg-5">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title mb-3">
+              <i class="fa-solid fa-toolbox me-2"></i>Technical Skills
+            </h5>
 
-    <p>
-      My main interests are:
-      <strong>network infrastructure</strong> and
-      <strong>researching malicious attacks</strong>, including how they work and how to defend against them.
-    </p>
-
-    <h2 class="h4 mt-4">Technical Skills</h2>
-    <ul>
-      <li>Networking fundamentals (TCP/IP, subnets, routing, switching)</li>
-      <li>Basic cybersecurity concepts (threats, vulnerabilities, attack types)</li>
-      <li>Linux & Windows administration (intro level)</li>
-      <li>Command line usage and scripting basics</li>
-      <li>Version control with Git & GitHub</li>
-      <li>Web basics (HTML, CSS, introductory JavaScript, Node.js & Express)</li>
-    </ul>
+            <!-- Skills shown as badges for quick scanning -->
+            <div class="skills-badges">
+              <span class="badge rounded-pill text-bg-light">Networking Fundamentals</span>
+              <span class="badge rounded-pill text-bg-light">TCP/IP &amp; Subnetting</span>
+              <span class="badge rounded-pill text-bg-light">Linux &amp; Windows Basics</span>
+              <span class="badge rounded-pill text-bg-light">Cybersecurity Concepts</span>
+              <span class="badge rounded-pill text-bg-light">Git &amp; GitHub</span>
+              <span class="badge rounded-pill text-bg-light">Node.js &amp; Express Basics</span>
+              <span class="badge rounded-pill text-bg-light">HTML &amp; CSS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <%- include('../partials/footer'); %>

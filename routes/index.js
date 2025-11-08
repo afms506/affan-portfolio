@@ -1,26 +1,38 @@
 // routes/index.js
-// Defines all main routes for Affan Shaikh's portfolio site.
+// Main routes for Affan Shaikh's portfolio website.
 
 var express = require('express');
-var router = express.Router();
+var router = express.Router(); // Create a router to define page routes
 
-// Home page - main landing page of the portfolio
+// ================= HOME PAGE =================
+
+// GET /
+// Renders the Home page (landing page)
 router.get('/', function(req, res) {
-  // Render views/pages/home.ejs and pass a title variable used by the templates
+  // 'title' is passed to the view and used for active nav state
   res.render('pages/home', { title: 'Home' });
 });
 
-// About page - background, program, skills
+// ================= ABOUT PAGE =================
+
+// GET /about
+// Shows background, skills, and interests
 router.get('/about', function(req, res) {
   res.render('pages/about', { title: 'About Me' });
 });
 
-// Projects page - placeholder for future/academic work
+// ================= PROJECTS PAGE =================
+
+// GET /projects
+// Shows current learning projects / labs
 router.get('/projects', function(req, res) {
   res.render('pages/projects', { title: 'Projects' });
 });
 
-// Contact page - how to reach Affan
+// ================= CONTACT PAGE =================
+
+// GET /contact
+// Shows contact details (email, GitHub, LinkedIn)
 router.get('/contact', function(req, res) {
   res.render('pages/contact', { title: 'Contact' });
 });

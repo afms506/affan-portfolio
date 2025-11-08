@@ -1,4 +1,7 @@
-<%# Projects page - currently highlights academic and upcoming work %>
+<%#
+  Projects page
+  Highlights learning activities instead of formal projects (honest + relevant).
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,53 +17,61 @@
   <%- include('../partials/header'); %>
 
   <main class="container py-5">
-    <h1>Projects</h1>
-    <p class="mb-4">
-      I am currently building my portfolio of work in networking and cybersecurity.
-      Below are examples of areas I am exploring and lab-style work I am practicing.
+    <h1 class="mb-3">Learning Projects &amp; Labs</h1>
+    <p class="text-muted mb-4">
+      These items represent hands-on areas I am working on as I build a foundation
+      in networking and cybersecurity.
     </p>
 
     <div class="row g-4">
-      <!-- Example "project-style" entries based on learning, not fake jobs -->
+      <!-- Card: Network topology practice -->
       <div class="col-md-4">
-        <div class="card h-100">
+        <div class="card h-100 project-card">
           <div class="card-body">
-            <h5 class="card-title">Network Topology Practice</h5>
-            <p class="card-text">
-              Designed small LAN topologies using switches, routers, and VLAN concepts
+            <h5 class="card-title">
+              <i class="fa-solid fa-network-wired me-2 text-primary"></i>Network Topology Practice
+            </h5>
+            <p class="card-text small">
+              Designed small LAN topologies using routers, switches, and VLAN concepts
               to understand segmentation and traffic flow.
             </p>
           </div>
         </div>
       </div>
 
+      <!-- Card: Security lab exercises -->
       <div class="col-md-4">
-        <div class="card h-100">
+        <div class="card h-100 project-card">
           <div class="card-body">
-            <h5 class="card-title">Basic Security Lab Exercises</h5>
-            <p class="card-text">
-              Performed hands-on labs exploring common attack vectors and defensive measures,
-              focusing on how vulnerabilities are discovered and mitigated.
+            <h5 class="card-title">
+              <i class="fa-solid fa-user-shield me-2 text-primary"></i>Security Lab Exercises
+            </h5>
+            <p class="card-text small">
+              Explored common attack vectors and basic defensive techniques in lab environments
+              to see how vulnerabilities are identified and mitigated.
             </p>
           </div>
         </div>
       </div>
 
+      <!-- Card: Web stack basics -->
       <div class="col-md-4">
-        <div class="card h-100">
+        <div class="card h-100 project-card">
           <div class="card-body">
-            <h5 class="card-title">Web Stack Foundations</h5>
-            <p class="card-text">
-              Built introductory Node.js &amp; Express applications to understand web servers,
-              routing, templates, and deployment as part of my coursework.
+            <h5 class="card-title">
+              <i class="fa-solid fa-code me-2 text-primary"></i>Web Stack Foundations
+            </h5>
+            <p class="card-text small">
+              Built Node.js &amp; Express applications using EJS templates to understand
+              how web servers, routing, and deployment work.
             </p>
           </div>
         </div>
       </div>
     </div>
 
-    <p class="mt-4 text-muted">
-      More detailed cybersecurity and networking projects will be added as I complete them.
+    <p class="mt-4 small text-muted">
+      As I complete more labs and real-world projects, I will expand this section.
     </p>
   </main>
 

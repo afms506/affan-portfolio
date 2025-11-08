@@ -1,19 +1,70 @@
-/* Base font for the whole site */
+/* Global base styles for the entire site */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #050816;        /* Dark background to match security theme */
+  color: #e5e5e5;              /* Light text for contrast */
 }
 
-/* Ensure main content has height so footer sits at bottom visually */
+/* Make sure page content is tall enough to push footer down */
 main {
   min-height: 70vh;
 }
 
-/* Make headings stand out slightly */
-h1, h2, h3 {
-  font-weight: 600;
+/* Remove default underlines (handled manually where needed) */
+a {
+  text-decoration: none;
 }
 
-/* Small visual tweak to the brand text in navbar */
+/* Navbar brand styling */
 .navbar-brand {
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+/* Hero section background with subtle gradients */
+.hero {
+  background: radial-gradient(circle at top left, #1f51ff33, transparent),
+              radial-gradient(circle at top right, #22c55e22, transparent);
+}
+
+/* "Glass" style card used on home page */
+.glass-card {
+  background: rgba(10, 12, 19, 0.9);
+  border: 1px solid rgba(148, 163, 253, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+/* Custom cyan badge used in hero */
+.bg-cyan {
+  background-color: #a5f3fc;
+}
+
+/* About page skill badges layout */
+.skills-badges .badge {
+  margin: 0 0.25rem 0.4rem 0;
+}
+
+/* Project cards: dark theme + hover effect */
+.project-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #0b0f19;
+  border: 1px solid #111827;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.6);
+}
+
+/* Contact card matches dark theme */
+.contact-card {
+  background-color: #0b0f19;
+  border: 1px solid #111827;
+}
+
+/* Smaller, clean footer text */
+footer p,
+footer a {
+  font-size: 0.8rem;
 }

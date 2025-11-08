@@ -1,4 +1,7 @@
-<%# Contact page - provides Affan's contact information %>
+<%#
+  Contact page
+  Shows how to reach Affan and includes a simple (disabled) form for layout only.
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,29 +16,56 @@
 <body>
   <%- include('../partials/header'); %>
 
-  <main class="container py-5">
-    <h1>Contact</h1>
-    <p>
-      If you would like to connect about networking, cybersecurity, or future opportunities,
-      feel free to reach out using the details below:
-    </p>
+  <main class="container py-5 d-flex justify-content-center">
+    <!-- Centered contact card -->
+    <div class="contact-card card shadow-sm w-100" style="max-width: 600px;">
+      <div class="card-body">
+        <h1 class="h3 mb-3">
+          <i class="fa-solid fa-envelope-open-text me-2 text-primary"></i>Contact Me
+        </h1>
 
-    <ul class="list-unstyled fs-5">
-      <li class="mb-2">
-        <i class="fa-solid fa-envelope me-2"></i>
-        <a href="mailto:ffaanshake@gmail.com">ffaanshake@gmail.com</a>
-      </li>
-      <li class="mb-2">
-        <i class="fab fa-github me-2"></i>
-        <a href="https://github.com/afms506" target="_blank">github.com/afms506</a>
-      </li>
-      <li class="mb-2">
-        <i class="fab fa-linkedin me-2"></i>
-        <a href="https://www.linkedin.com/in/affan-shaikh-6854902a8" target="_blank">
-          linkedin.com/in/affan-shaikh-6854902a8
-        </a>
-      </li>
-    </ul>
+        <p class="text-muted small mb-4">
+          Reach out if you’d like to discuss networking, cybersecurity, or future opportunities.
+        </p>
+
+        <!-- Primary contact details -->
+        <ul class="list-unstyled mb-4">
+          <li class="mb-2">
+            <i class="fa-solid fa-envelope me-2 text-primary"></i>
+            <a href="mailto:ffaanshake@gmail.com">ffaanshake@gmail.com</a>
+          </li>
+          <li class="mb-2">
+            <i class="fab fa-github me-2 text-primary"></i>
+            <a href="https://github.com/afms506" target="_blank">github.com/afms506</a>
+          </li>
+          <li class="mb-2">
+            <i class="fab fa-linkedin me-2 text-primary"></i>
+            <a href="https://www.linkedin.com/in/affan-shaikh-6854902a8" target="_blank">
+              linkedin.com/in/affan-shaikh-6854902a8
+            </a>
+          </li>
+        </ul>
+
+        <%# Simple static form for layout only (disabled so no backend needed) %>
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="Your name" disabled>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="Your email" disabled>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="3" placeholder="Coming soon..." disabled></textarea>
+          </div>
+          <button type="button" class="btn btn-secondary" disabled>
+            Form demo only
+          </button>
+        </form>
+      </div>
+    </div>
   </main>
 
   <%- include('../partials/footer'); %>
